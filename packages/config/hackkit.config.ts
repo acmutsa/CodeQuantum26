@@ -913,7 +913,7 @@ const c = {
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
 	startDate: new Date(new Date(2026, 3, 28).setHours(9)),
-	prettyLocation: "UT San Antonio - Main Campus - Business Building",
+	prettyLocation: "UTSA Business Bldg",
 	roleBadges: {
 		hacker: {
 			title: "Hacker",
