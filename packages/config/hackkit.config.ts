@@ -806,7 +806,7 @@ const softwareExperienceOptions = [
 ] as const;
 
 const c = {
-	hackathonName: "CodeQuantum",
+	hackathonName: "Code Quantum",
 	itteration: "IV",
 	siteUrl: "https://cqhacks.org", // Do not have a trailing slash
 	defaultMetaDataDescription:
