@@ -17,7 +17,7 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const theme = cookies().get("hk_theme")?.value || defaultTheme;
+	const theme = defaultTheme;
 	return (
 		<ClerkProvider>
 			<html lang="en">

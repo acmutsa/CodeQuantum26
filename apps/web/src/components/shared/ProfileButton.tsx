@@ -16,7 +16,6 @@ import { Button } from "@/components/shadcn/ui/button";
 import { auth } from "@clerk/nextjs/server";
 import { SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { DropdownSwitcher } from "@/components/shared/ThemeSwitcher";
 import DefaultDropdownTrigger from "../dash/shared/DefaultDropDownTrigger";
 import MobileNavBarLinks from "./MobileNavBarLinks";
 import { getUser } from "db/functions";
@@ -58,7 +57,6 @@ export default async function ProfileButton() {
 						</Link>
 						<MobileNavBarLinks />
 						<DropdownMenuSeparator className="bg-[rgb(228,228,231)] dark:bg-[rgb(39,39,42)]" />
-						<DropdownSwitcher />
 						<Link href={`/bug-report`}>
 							<DropdownMenuItem className="cursor-pointer">
 								Report a Bug
@@ -104,7 +102,6 @@ export default async function ProfileButton() {
 						</Link>
 					</DropdownMenuGroup>
 					<DropdownMenuSeparator className="bg-[rgb(228,228,231)] dark:bg-[rgb(39,39,42)]" />
-					<DropdownSwitcher />
 					<SignOutButton redirectUrl={"/"}>
 						<DropdownMenuItem className="cursor-pointer hover:!bg-destructive">
 							Sign out
@@ -178,7 +175,6 @@ export default async function ProfileButton() {
 					</Link>
 				</DropdownMenuGroup>
 				<DropdownMenuSeparator className="bg-[rgb(228,228,231)] dark:bg-[rgb(39,39,42)]" />
-				<DropdownSwitcher />
 				<SignOutButton redirectUrl={"/"}>
 					<DropdownMenuItem className="cursor-pointer text-red-500 hover:!bg-destructive hover:text-muted">
 						Sign out

@@ -212,11 +212,13 @@ export const userHackerData = sqliteTable("user_hacker_data", {
 	group: integer("group").notNull(),
 	hasAcceptedMLHCoC: integer("has_accepted_mlh_coc", {
 		mode: "boolean",
-	}).notNull(),
+	}).default(false), // Optional with default value
 	hasSharedDataWithMLH: integer("has_shared_data_with_mlh", {
 		mode: "boolean",
-	}).notNull(),
-	isEmailable: integer("is_emailable", { mode: "boolean" }).notNull(),
+	}).default(false), // Optional with default value
+	isEmailable: integer("is_emailable", {
+		mode: "boolean",
+	}).default(false),
 });
 
 export const userHackerRelations = relations(

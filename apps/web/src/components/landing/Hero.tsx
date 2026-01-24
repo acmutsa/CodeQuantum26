@@ -5,30 +5,39 @@ import { Button } from "../shadcn/ui/button";
 export default function Hero() {
 	return (
 		<section className="grid w-full grid-cols-1 overflow-hidden">
-			<div className="relative flex min-h-screen w-full flex-col items-center justify-center">
-				<div className="relative">
-					<div className="z-12 flex items-center gap-3">
-						<div className="relative h-40 w-40">
-							<Image
-								src="/img/logo/cq26.png"
-								alt="CodeQuantum Logo"
-								fill
-								className="object-contain"
-							/>
-						</div>
-						<h1 className="font-racing text-7xl dark:bg-gradient-to-tr dark:from-hackathon/80 dark:to-white dark:bg-clip-text dark:text-transparent md:text-8xl">
-							odeQuantum
-						</h1>
+			<div className="relative flex min-h-screen w-full flex-col items-center justify-center bg-cover bg-center bg-no-repeat" 
+     			style={{ backgroundImage: "url('/img/hero-bg.jpeg')" }}>
+				{/* Dark overlay */}
+				<div className="absolute inset-0 bg-black/50 z-0"></div>
+				
+				<div className="relative z-10">
+					<div className="flex flex-col items-center gap-3">
+					<h1 
+						className="font-racing text-white"
+						style={{
+							fontSize: 'clamp(4rem, 8vw + 2rem, 10rem)',
+							background: 'linear-gradient(to bottom, #ffffff 0%, #e8e8e8 50%, #ffffff 100%)',
+							WebkitBackgroundClip: 'text',
+							WebkitTextFillColor: 'transparent',
+							textShadow: '0 1px 2px rgba(255,255,255,0.9), 0 0 10px rgba(255,255,255,0.5)'
+						}}
+					>
+						CodeQuantum
+					</h1>
+						<p
+							className="font-racing text-white"
+							style={{
+								fontSize: 'clamp(1rem, 2vw + 0.5rem, 2rem)', 
+								background: 'linear-gradient(to bottom, #ffffff 0%, #e8e8e8 50%, #ffffff 100%)',
+								WebkitBackgroundClip: 'text',
+								WebkitTextFillColor: 'transparent',
+								textShadow: '0 1px 2px rgba(255,255,255,0.9), 0 0 10px rgba(255,255,255,0.5)'
+							}}
+						>
+							3/28 @ UTSA Business Building
+						</p>
 					</div>
-					<h2 className="text-center text-2xl font-bold text-muted-foreground">
-						If you ain't first, you're last.
-					</h2>
 					<div className="mt-6 flex justify-center">
-						<Link href="/register">
-							<Button className="hover:bg-hackathon-100 bg-hackathon text-white">
-								Register Now!
-							</Button>
-						</Link>
 					</div>
 				</div>
 			</div>

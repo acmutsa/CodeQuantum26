@@ -16,7 +16,6 @@ import { Button } from "@/components/shadcn/ui/button";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { DropdownSwitcher } from "@/components/shared/ThemeSwitcher";
 import { getUser } from "db/functions";
 import { clientLogOut } from "@/lib/utils/server/user";
 
@@ -48,7 +47,6 @@ export default async function ProfileButton() {
 					forceMount
 				>
 					<DropdownMenuGroup>
-						<DropdownSwitcher />
 						<Link href={`/register`}>
 							<DropdownMenuItem className="cursor-pointer">
 								Complete Registration
@@ -97,7 +95,6 @@ export default async function ProfileButton() {
 				</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
-					<DropdownSwitcher />
 					<Link href={`/@${user.hackerTag}`}>
 						<DropdownMenuItem className="cursor-pointer">
 							Profile

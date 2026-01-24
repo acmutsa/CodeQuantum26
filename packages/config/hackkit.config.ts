@@ -806,12 +806,13 @@ const softwareExperienceOptions = [
 ] as const;
 
 const c = {
-	hackathonName: "CodeQuantum",
-	itteration: "I",
+	hackathonName: "Code Quantum",
+	itteration: "IV",
 	siteUrl: "https://cqhacks.org", // Do not have a trailing slash
-	defaultMetaDataDescription: "Your Metadata Description Here",
+	defaultMetaDataDescription:
+		"Code Quantum is a beginner-friendly hackday hosted at UTSA for students from all disciplines. Our goal is to create an environment where hackers can learn and develop their skills. To support this, we provide free meals, snacks, drinks, workshops, mini-events, socials, and networking opportunities with our industry partners.",
 	rsvpDefaultLimit: 500,
-	botName: "HackKit",
+	botName: "HackKit", // NEEDS TO BE CHANGED
 	botParticipantRole: "Participant",
 	hackathonTimezone: "America/Chicago",
 	localUniversityName: schoolOptions[0],
@@ -854,45 +855,21 @@ const c = {
 		},
 	},
 	groups: {
-		"Guild A | Group A": {
-			discordRole: "Guild A Role",
+		"Grease Monkeys": {
+			discordRole: "Grease Monkeys",
 		},
-		"Guild A | Group B": {
-			discordRole: "Guild A Role",
-		},
-		"Guild B | Group A": {
-			discordRole: "Guild B Role",
-		},
-		"Guild B | Group B": {
-			discordRole: "Guild B Role",
-		},
-		"Guild C | Group A": {
-			discordRole: "Guild C Role",
-		},
-		"Guild C | Group B": {
-			discordRole: "Guild C Role",
-		},
-		"Guild D | Group A": {
-			discordRole: "Guild D Role",
-		},
-		"Guild D | Group B": {
-			discordRole: "Guild D Role",
-		},
-		"Guild E | Group A": {
-			discordRole: "Guild E Role",
-		},
-		"Guild E | Group B": {
-			discordRole: "Guild E Role",
+		"Speed Demons": {
+			discordRole: "Speed Demons",
 		},
 	},
-	issueEmail: "team@rowdyhacks.org",
+	issueEmail: "tech@acmutsa.org",
 	links: {
-		discord: "https://go.rowdyhacks.org/discord",
-		instagram: "https://instagram.com/rowdyhacks",
-		facebook: "https://facebook.com/rowdyhacks",
-		twitter: "https://twitter.com/rowdyhacks",
+		discord: "https://go.cqhacks.org/discord",
+		instagram: "https://instagram.com/cqhacks",
+		facebook: "https://facebook.com/acmutsa",
+		twitter: "https://twitter.com/acmutsa",
 		github: "https://github.com/acmutsa",
-		guide: "https://go.rowdyhacks.org/discord",
+		guide: "https://go.cqhacks.org/discord",
 	},
 	icon: {
 		sm: "/img/logo/cq26.png",
@@ -935,8 +912,8 @@ const c = {
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
-	startDate: new Date(new Date(2024, 1, 24).setHours(9)),
-	prettyLocation: "Location of Hackathon",
+	startDate: new Date(new Date(2026, 3, 28).setHours(9)),
+	prettyLocation: "UTSA Business Bldg",
 	roleBadges: {
 		hacker: {
 			title: "Hacker",
