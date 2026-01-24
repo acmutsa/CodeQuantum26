@@ -33,9 +33,6 @@ export const registerHacker = authenticatedAction
 			GitHub,
 			LinkedIn,
 			PersonalWebsite,
-			hasAcceptedMLHCoC,
-			hasSharedDataWithMLH,
-			isEmailable,
 			...userData
 		} = parsedInput;
 
@@ -78,9 +75,6 @@ export const registerHacker = authenticatedAction
 					resume,
 					group:
 						totalUserCount[0].count % Object.keys(c.groups).length,
-					hasAcceptedMLHCoC,
-					hasSharedDataWithMLH,
-					isEmailable,
 				});
 			});
 		} catch (e) {
