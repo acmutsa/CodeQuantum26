@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 export default function CreatedWithHackkit() {
 	return (
-		<div className="flex items-center gap-x-2 rounded-lg border-black bg-[#222222] py-[6px] pl-[7px] pr-4">
+
+		<div className="flex items-center gap-x-2 rounded-[23px] border border-white/10 bg-zinc-950/90 p-4 shadow-[0_22px_60px_rgba(0,0,0,0.35)] md:p-5 lg:p-6">
 			<Image
 				src="/img/logo/hackkit.svg"
 				alt="HackKit Logo"
