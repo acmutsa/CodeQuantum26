@@ -29,8 +29,8 @@ const hackathons = [
 ] as const;
 
 const socials = [
-  { name: "GirHub", link: "https://github.com/acmutsa/CodeQuantum26.git"},
-  { name: "Discord", link: ""},
+  { name: "GitHub", link: "https://github.com/acmutsa/CodeQuantum26.git"},
+  { name: "Discord", link: "https://cqhacks.org/discord"},
   { name: "Instagram", link: "http://instagram.com/cqhacks/" },
   { name: "Facebook", link: "https://www.facebook.com/UTSA.ACM" },
   { name: "X", link: "" },

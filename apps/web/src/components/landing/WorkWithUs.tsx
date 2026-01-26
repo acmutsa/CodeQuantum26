@@ -27,14 +27,13 @@ export default function WorkWithUs() {
       		</h1>
 		</div>
 
-	{/*Need links to forms */}
       <motion.div
         initial={{ x: "-100vw" }}
         animate={inView ? { x: 0 } : {}}
         transition={{ duration: 1.3, ease: "easeOut" }}
         className="lg:w-[50%] md:w-[65%] sm:w-[75%] w-[75%] h-auto"
       >
-         <Link href="/another-page" className="flex items-center justify-center inline-block transition-transform duration-300 hover:scale-105"> 
+         <Link href=" https://tally.so/r/jalpWR" className="flex items-center justify-center inline-block transition-transform duration-300 hover:scale-105"> 
 			<img
 				src="/img/judge_ticket.png"
 				alt="Navigate to page"
@@ -49,7 +48,7 @@ export default function WorkWithUs() {
         transition={{ duration: 1.3, ease: "easeOut" }}
         className="lg:w-[50%] md:w-[65%] sm:w-[75%] w-[75%] h-auto"
       >
-        <Link href="/another-page" className="flex items-center justify-center inline-block transition-transform duration-300 hover:scale-105">
+        <Link href="https://tally.so/r/68jq1N" className="flex items-center justify-center inline-block transition-transform duration-300 hover:scale-105">
 			<img
 				src="/img/mentor_ticket.png"
 				alt="Navigate to page"
@@ -65,7 +64,7 @@ export default function WorkWithUs() {
         className="lg:w-[50%] md:w-[65%] sm:w-[75%] w-[75%] h-auto"
       >
         
-		<Link href="/another-page" className="flex items-center justify-center inline-block transition-transform duration-300 hover:scale-105">
+		<Link href="https://tally.so/r/ZjExgo" className="flex items-center justify-center inline-block transition-transform duration-300 hover:scale-105">
 			<img
 				src="/img/volunteer_ticket.png"
 				alt="Navigate to page"
