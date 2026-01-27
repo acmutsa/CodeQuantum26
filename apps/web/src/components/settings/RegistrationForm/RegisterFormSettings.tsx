@@ -69,7 +69,7 @@ export default function RegisterFormSettings({
 		defaultValues: {
 			hackathonsAttended: originalData.hackathonsAttended,
 			dietaryRestrictions: user.dietRestrictions as any,
-			isEmailable: originalData.isEmailable,
+			isEmailable: originalData.isEmailable ?? false,
 			accommodationNote: user.accommodationNote || "",
 			age: user.age,
 			ethnicity: user.ethnicity as any,

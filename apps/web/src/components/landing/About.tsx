@@ -132,7 +132,7 @@ function InfoHub({ progress }: { progress: number }) {
                     </div>
 
                     <h3 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                      UTSA Buisness Building 
+                      UTSA Business Building 
                     </h3>
 
                     <div className="mt-2 text-base font-normal text-white/70">
