@@ -62,37 +62,6 @@ export default function About() {
 				<RoadRevealBanner progress={p} canRun={welcomeDone} />
 
 				<InfoHub progress={p} />
-
-				{/* tracks and stick */}
-				{/* NEED TO UNCOMMENT ONCE TRACKS GET RELEASED */}
-				{/*
-				<div className="mt-4 grid gap-4 md:grid-cols-2">
-					<RaceTrackTile
-						label="BEGINNER"
-						title="Beginner Track"
-						body="Best for first-time hackers & new teams."
-						variant="oval"
-					/>
-					<RaceTrackTile
-						label="INTERMEDIATE"
-						title="Intermediate Track"
-						body="More build depth, polish, and features."
-						variant="chicane"
-					/>
-					<RaceTrackTile
-						label="F1 THEME"
-						title="F1 Theme Track"
-						body="Race-inspired builds, UI, data, sims, etc."
-						variant="figure8"
-					/>
-					<RaceTrackTile
-						label="BEST PITCH"
-						title="Best Pitch Track"
-						body="Win the room with your demo + story."
-						variant="hairpin"
-					/>
-				</div>
-        */}
 			</div>
 		</section>
 	);
@@ -114,14 +83,12 @@ function InfoHub({ progress }: { progress: number }) {
 				<div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-zinc-950/90 shadow-[0_28px_70px_rgba(0,0,0,0.55)]">
 					<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.06] via-transparent to-black/40" />
 
-					{/* red top edge glow */}
 					<div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-red-600/20 to-transparent" />
 
 					<RaceDecor />
 
 					<div className="relative z-10 grid gap-6 p-6 md:grid-cols-12 md:p-8">
 						<div className="grid gap-6 md:col-span-12">
-							{/* location box */}
 							<RevealCard
 								progress={progress}
 								delay={baseDelay + 0.06}
@@ -143,12 +110,6 @@ function InfoHub({ progress }: { progress: number }) {
 												Circle, San Antonio, TX 78249
 											</div>
 
-											<a
-												className="mt-4 inline-block text-sm font-medium text-white/80 underline underline-offset-4 hover:text-white"
-												href="#"
-											>
-												View Building Map
-											</a>
 										</div>
 
 										<div className="overflow-hidden rounded-2xl border border-white/10 shadow-sm">
@@ -165,9 +126,8 @@ function InfoHub({ progress }: { progress: number }) {
 								</div>
 							</RevealCard>
 
-							{/* Bottom row */}
 							<div className="grid gap-6 md:grid-cols-2">
-								{/* parking info here needs to be updaed */}
+								{/* parking info was updated*/}
 								<RevealCard
 									progress={progress}
 									delay={baseDelay + 0.12}
@@ -608,81 +568,97 @@ function easeOut(t: number, a: number, b: number) {
 function WelcomeBanner({
 	progress,
 	onDone,
-}: {
+  }: {
 	progress: number;
 	onDone?: () => void;
-}) {
+  }) {
 	const START_AT = 0.22;
-
-	const welcomeT = easeOut(progress, START_AT, START_AT + 0.16); // fade
+  
+	const welcomeT = easeOut(progress, START_AT, START_AT + 0.16);
 	const codeT = easeOut(progress, START_AT + 0.1, START_AT + 0.3);
-
+  
 	const doneRef = useRef(false);
 	useEffect(() => {
-		if (doneRef.current) return;
-		if (codeT < 0.98) return;
-		doneRef.current = true;
-		onDone?.();
+	  if (doneRef.current) return;
+	  if (codeT < 0.98) return;
+	  doneRef.current = true;
+	  onDone?.();
 	}, [codeT, onDone]);
-
+  
+	const boxT = easeOut(progress, START_AT - 0.02, START_AT + 0.18);
+  
 	return (
-		<div className="boxed mx-auto inline-block text-center">
+	  <div
+		className="mx-auto inline-block text-center"
+		style={{
+		  opacity: boxT,
+		  transform: `translate3d(0, ${(1 - boxT) * 14}px, 0) scale(${0.98 + boxT * 0.02})`,
+		  transition: "opacity 160ms linear, transform 160ms linear",
+		}}
+	  >
+		<div className="relative bg-zinc-950/70 overflow-hidden rounded-[28px] border border-white/10 bg-black/40 px-8 py-6 shadow-[0_30px_80px_rgba(0,0,0,0.55)] backdrop-blur-md md:px-10 md:py-7">
+		  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-transparent to-black/35" />
+		  <div className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-red-500/15 blur-3xl" />
+		  <div className="pointer-events-none absolute -right-16 -bottom-24 h-56 w-56 rounded-full bg-red-500/10 blur-3xl" />
+  
+		  <div className="relative z-10">
 			<div
-				className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
-				style={{
-					opacity: welcomeT,
-					transform: `translate3d(0, ${(1 - welcomeT) * 10}px, 0)`,
-					transition: "opacity 120ms linear, transform 120ms linear",
-				}}
+			  className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
+			  style={{
+				opacity: welcomeT,
+				transform: `translate3d(0, ${(1 - welcomeT) * 10}px, 0)`,
+				transition: "opacity 140ms linear, transform 140ms linear",
+			  }}
 			>
-				Welcome to
+			  Welcome to
 			</div>
-
+  
 			<div
-				className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
-				style={{
-					opacity: codeT,
-					transform: `translate3d(${(1 - codeT) * 22}px, 0, 0)`,
-					transition: "opacity 120ms linear, transform 120ms linear",
-				}}
+			  className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
+			  style={{
+				opacity: codeT,
+				transform: `translate3d(${(1 - codeT) * 22}px, 0, 0)`,
+				transition: "opacity 140ms linear, transform 140ms linear",
+			  }}
 			>
-				Code Quantum
+			  Code Quantum
 			</div>
+		  </div>
 		</div>
+	  </div>
 	);
-}
+  }
+  
 
-function RoadRevealBanner({
+  function RoadRevealBanner({
 	progress,
 	canRun,
 }: {
 	progress: number;
 	canRun: boolean;
 }) {
-	const DURATION_MS = 2400;
+	const DURATION_MS = 2600; 
+	const CAR_PX = 260; 
 
 	const wrapRef = useRef<HTMLDivElement | null>(null);
 	const roadRef = useRef<HTMLDivElement | null>(null);
 	const carRef = useRef<HTMLImageElement | null>(null);
+	const revealRef = useRef<HTMLDivElement | null>(null);
 
 	const ranRef = useRef(false);
 	const rafRef = useRef<number | null>(null);
 
 	const [inView, setInView] = useState(false);
-	const [carX, setCarX] = useState(-200);
-	const [reveal, setReveal] = useState(0);
-
 	const [openId, setOpenId] = useState<string | null>(null);
 
+	// visibility
 	useEffect(() => {
 		const el = wrapRef.current;
 		if (!el) return;
 
 		const io = new IntersectionObserver(
 			([entry]) =>
-				setInView(
-					entry.isIntersecting && entry.intersectionRatio >= 0.35,
-				),
+				setInView(entry.isIntersecting && entry.intersectionRatio >= 0.35),
 			{ threshold: [0, 0.15, 0.35, 0.6, 1] },
 		);
 
@@ -690,21 +666,26 @@ function RoadRevealBanner({
 		return () => io.disconnect();
 	}, []);
 
-	// car goes when scrolled down once
 	useEffect(() => {
 		if (!inView) return;
 		if (!canRun) return;
 		if (ranRef.current) return;
 
 		const road = roadRef.current;
-		if (!road) return;
+		const carEl = carRef.current;
+		const revealEl = revealRef.current;
+		if (!road || !carEl || !revealEl) return;
 
 		ranRef.current = true;
 
-		const carW = carRef.current?.getBoundingClientRect().width ?? 140;
+		carEl.style.opacity = "1";
+		carEl.style.transform = `translate3d(${-CAR_PX}px, -50%, 0)`;
+		revealEl.style.clipPath = `inset(0 100% 0 0)`;
 
-		setCarX(-carW);
-		setReveal(0);
+		const measuredCarW =
+			carEl.getBoundingClientRect().width > 0
+				? carEl.getBoundingClientRect().width
+				: CAR_PX;
 
 		const start = performance.now();
 
@@ -712,14 +693,27 @@ function RoadRevealBanner({
 			const t = Math.min(1, (now - start) / DURATION_MS);
 
 			const roadW = road.clientWidth;
-			const x = lerp(-carW, roadW + carW, easeOutCubic(t));
-			const r = clamp01((x + carW * 0.7) / roadW);
 
-			setCarX(x);
-			setReveal(r);
+			const x = lerp(-measuredCarW, roadW + measuredCarW, t);
 
-			if (t < 1) rafRef.current = requestAnimationFrame(step);
-			else rafRef.current = null;
+			const r = clamp01((x + measuredCarW) / (roadW + measuredCarW));
+
+			carEl.style.transform = `translate3d(${x}px, -50%, 0)`;
+
+			revealEl.style.clipPath = `inset(0 ${(1 - r) * 100}% 0 0)`;
+
+			const fadeStart = roadW - measuredCarW * 0.25;
+			const fadeEnd = roadW + measuredCarW * 0.85;
+			const opacity = 1 - clamp01((x - fadeStart) / Math.max(1, fadeEnd - fadeStart));
+			carEl.style.opacity = String(opacity);
+
+			if (t < 1) {
+				rafRef.current = requestAnimationFrame(step);
+			} else {
+				rafRef.current = null;
+				carEl.style.opacity = "0";
+				carEl.style.transform = `translate3d(${roadW + measuredCarW * 4}px, -50%, 0)`;
+			}
 		};
 
 		rafRef.current = requestAnimationFrame(step);
@@ -729,6 +723,22 @@ function RoadRevealBanner({
 			rafRef.current = null;
 		};
 	}, [inView, canRun]);
+
+	useEffect(() => {
+		const road = roadRef.current;
+		const carEl = carRef.current;
+		if (!road || !carEl) return;
+
+		const onResize = () => {
+			if (ranRef.current && carEl.style.opacity === "0") {
+				const roadW = road.clientWidth;
+				carEl.style.transform = `translate3d(${roadW + CAR_PX * 4}px, -50%, 0)`;
+			}
+		};
+
+		window.addEventListener("resize", onResize);
+		return () => window.removeEventListener("resize", onResize);
+	}, []);
 
 	const fade = easeOut(progress, 0.12, 0.45);
 
@@ -742,6 +752,7 @@ function RoadRevealBanner({
 			}}
 		>
 			<div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.55)]">
+				{/* road */}
 				<div
 					ref={roadRef}
 					className="relative py-6 md:py-7"
@@ -778,22 +789,19 @@ function RoadRevealBanner({
 
 					<div className="relative mx-auto max-w-5xl px-6 md:px-10">
 						<div
+							ref={revealRef}
 							style={{
-								clipPath: `inset(0 ${(1 - reveal) * 100}% 0 0)`,
+								clipPath: `inset(0 100% 0 0)`,
 								willChange: "clip-path",
 							}}
 						>
 							<div className="mx-auto max-w-4xl text-center">
 								<p className="mt-2 text-[15px] font-normal leading-relaxed text-white/90 md:text-[17px]">
 									<Balancer>
-										CodeQuantum is a 12-hour, beginner
-										friendly hackathon for everyone to join
-										and enjoy, designed to represent
-										everyone’s diverse range of ideas in a
-										welcoming environment. At the event,
-										you’ll have the opportunity to create
-										your own software and hardware products
-										with up to 4 team members that wow
+										CodeQuantum is a 12-hour, beginner friendly hackathon for everyone to join
+										and enjoy, designed to represent everyone’s diverse range of ideas in a
+										welcoming environment. At the event, you’ll have the opportunity to create
+										your own software and hardware products with up to 4 team members that wow
 										yourself, mentors, and judges alike!
 									</Balancer>
 								</p>
@@ -803,29 +811,28 @@ function RoadRevealBanner({
 
 					<img
 						ref={carRef}
-						src="/img/logo/topdown.png"
+						src="/img/logo/cargo.png"
 						alt="Car"
 						className="pointer-events-none absolute top-1/2 -translate-y-1/2"
 						style={{
-							width: 170,
+							width: CAR_PX,
 							height: "auto",
-							transform: `translate3d(${carX}px, -50%, 0)`,
-							willChange: "transform",
+							transform: `translate3d(${-CAR_PX}px, -50%, 0)`,
+							willChange: "transform, opacity",
 							filter: "drop-shadow(0 14px 18px rgba(0,0,0,0.55))",
+							opacity: 1,
 						}}
 					/>
 				</div>
 
-				<div className="bg-zinc-950/70 px-6 py-6 md:px-10 md:py-7">
+				<div className="bg-black/80 px-6 py-6 md:px-10 md:py-7">
 					<div className="mx-auto max-w-5xl">
 						<div className="mb-4 flex items-center justify-between">
 							<div className="text-sm font-medium tracking-[0.18em] text-white/60">
 								QUICK ANSWERS
 							</div>
 							<div className="mx-4 h-px flex-1 bg-white/10" />
-							<div className="text-xs text-white/45">
-								tap to expand
-							</div>
+							<div className="text-xs text-white/45">tap to expand</div>
 						</div>
 
 						<div className="grid gap-3 md:grid-cols-3">
@@ -899,7 +906,6 @@ function FaqItem({
 				</div>
 			</div>
 
-			{/* animated reveal */}
 			<div
 				className={cn(
 					"grid transition-[grid-template-rows,opacity] duration-300 ease-out",
