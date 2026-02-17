@@ -67,7 +67,6 @@ function EventPass({ qrPayload, user, clerk, guild }: EventPassProps) {
 						<h3 className="text-center font-mono text-sm">
 							@{user.hackerTag}
 						</h3>
-						{/* group is guild */}
 						<h3 className="text-center font-mono text-sm">
 							{guild}
 						</h3>
