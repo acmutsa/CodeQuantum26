@@ -67,6 +67,7 @@ function EventPass({ qrPayload, user, clerk, guild }: EventPassProps) {
 						<h3 className="text-center font-mono text-sm">
 							@{user.hackerTag}
 						</h3>
+						{/* group is guild */}
 						<h3 className="text-center font-mono text-sm">
 							{guild}
 						</h3>
@@ -75,11 +76,11 @@ function EventPass({ qrPayload, user, clerk, guild }: EventPassProps) {
 				<div className="event-pass-img relative flex h-[45%] w-full items-end">
 					<div className="absolute left-1/2 top-1/2 aspect-square w-[200px] -translate-x-1/2 -translate-y-[65%] bg-hackathon opacity-60 blur-[50px] will-change-transform"></div>
 					<Image
-						src={c.eventPassBgImage}
+						src={c.eventPassBgImage.replace("{name}", guild)}
 						alt={""}
 						fill
 						priority
-						className="no-select -translate-y-[15%] scale-[0.8] object-contain"
+						className="no-select -translate-y-[15%] scale-[0.65] object-contain"
 					/>
 					<div className="grid h-20 w-full grid-cols-2">
 						<div className="flex h-full w-full items-center justify-start pl-2">

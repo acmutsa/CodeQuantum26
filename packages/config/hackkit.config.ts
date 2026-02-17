@@ -908,7 +908,7 @@ const c = {
 	maxResumeSizeInBytes: 4194304,
 	maxProfilePhotoSizeInBytes: 3145728,
 	maxFileSizeInBytes: 4194304,
-	eventPassBgImage: "/img/dash/pass/bg.webp",
+	eventPassBgImage: "/img/dash/pass/{name}.png",
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
