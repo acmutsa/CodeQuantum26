@@ -62,6 +62,35 @@ export default function About() {
 				<RoadRevealBanner progress={p} canRun={welcomeDone} />
 
 				<InfoHub progress={p} />
+
+				{/* tracks and stick */}
+				{/* NEED TO UNCOMMENT ONCE TRACKS GET RELEASED */}
+				{
+					<div className="mt-4 grid gap-4 md:grid-cols-2">
+						<RaceTrackTile
+							label="BEST THEME"
+							title="Best Theme Track"
+							body="F1-inspired builds, UI, data, sims, etc."
+							variant="oval"
+						/>
+						<RaceTrackTile
+							label="BEST DATA"
+							title="Best Data Track"
+							body="Analyze F1 data given to reveal patterns and competitive insights."
+							variant="figure8"
+						/>
+						<div className="flex justify-center md:col-span-2">
+							<div className="w-full md:w-1/2">
+								<RaceTrackTile
+									label="BEST PITCH"
+									title="Best Pitch Track"
+									body="Teams propose a tech product and pitch it like a startup."
+									variant="hairpin"
+								/>
+							</div>
+						</div>
+					</div>
+				}
 			</div>
 		</section>
 	);
