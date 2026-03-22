@@ -75,7 +75,7 @@ export default function About() {
 						/>
 						<RaceTrackTile
 							label="BEST DATA"
-							title="Best Data Track"
+							title="Overtake The Data"
 							body="Analyze F1 data given to reveal patterns and competitive insights."
 							variant="figure8"
 						/>
@@ -138,7 +138,6 @@ function InfoHub({ progress }: { progress: number }) {
 												John Peace Library, 1 UTSA
 												Circle, San Antonio, TX 78249
 											</div>
-
 										</div>
 
 										<div className="overflow-hidden rounded-2xl border border-white/10 shadow-sm">
@@ -597,77 +596,78 @@ function easeOut(t: number, a: number, b: number) {
 function WelcomeBanner({
 	progress,
 	onDone,
-  }: {
+}: {
 	progress: number;
 	onDone?: () => void;
-  }) {
+}) {
 	const START_AT = 0.22;
-  
+
 	const welcomeT = easeOut(progress, START_AT, START_AT + 0.16);
 	const codeT = easeOut(progress, START_AT + 0.1, START_AT + 0.3);
-  
+
 	const doneRef = useRef(false);
 	useEffect(() => {
-	  if (doneRef.current) return;
-	  if (codeT < 0.98) return;
-	  doneRef.current = true;
-	  onDone?.();
+		if (doneRef.current) return;
+		if (codeT < 0.98) return;
+		doneRef.current = true;
+		onDone?.();
 	}, [codeT, onDone]);
-  
-	const boxT = easeOut(progress, START_AT - 0.02, START_AT + 0.18);
-  
-	return (
-	  <div
-		className="mx-auto inline-block text-center"
-		style={{
-		  opacity: boxT,
-		  transform: `translate3d(0, ${(1 - boxT) * 14}px, 0) scale(${0.98 + boxT * 0.02})`,
-		  transition: "opacity 160ms linear, transform 160ms linear",
-		}}
-	  >
-		<div className="relative bg-zinc-950/70 overflow-hidden rounded-[28px] border border-white/10 bg-black/40 px-8 py-6 shadow-[0_30px_80px_rgba(0,0,0,0.55)] backdrop-blur-md md:px-10 md:py-7">
-		  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-transparent to-black/35" />
-		  <div className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-red-500/15 blur-3xl" />
-		  <div className="pointer-events-none absolute -right-16 -bottom-24 h-56 w-56 rounded-full bg-red-500/10 blur-3xl" />
-  
-		  <div className="relative z-10">
-			<div
-			  className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
-			  style={{
-				opacity: welcomeT,
-				transform: `translate3d(0, ${(1 - welcomeT) * 10}px, 0)`,
-				transition: "opacity 140ms linear, transform 140ms linear",
-			  }}
-			>
-			  Welcome to
-			</div>
-  
-			<div
-			  className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
-			  style={{
-				opacity: codeT,
-				transform: `translate3d(${(1 - codeT) * 22}px, 0, 0)`,
-				transition: "opacity 140ms linear, transform 140ms linear",
-			  }}
-			>
-			  Code Quantum
-			</div>
-		  </div>
-		</div>
-	  </div>
-	);
-  }
-  
 
-  function RoadRevealBanner({
+	const boxT = easeOut(progress, START_AT - 0.02, START_AT + 0.18);
+
+	return (
+		<div
+			className="mx-auto inline-block text-center"
+			style={{
+				opacity: boxT,
+				transform: `translate3d(0, ${(1 - boxT) * 14}px, 0) scale(${0.98 + boxT * 0.02})`,
+				transition: "opacity 160ms linear, transform 160ms linear",
+			}}
+		>
+			<div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-black/40 bg-zinc-950/70 px-8 py-6 shadow-[0_30px_80px_rgba(0,0,0,0.55)] backdrop-blur-md md:px-10 md:py-7">
+				<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-transparent to-black/35" />
+				<div className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-red-500/15 blur-3xl" />
+				<div className="pointer-events-none absolute -bottom-24 -right-16 h-56 w-56 rounded-full bg-red-500/10 blur-3xl" />
+
+				<div className="relative z-10">
+					<div
+						className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
+						style={{
+							opacity: welcomeT,
+							transform: `translate3d(0, ${(1 - welcomeT) * 10}px, 0)`,
+							transition:
+								"opacity 140ms linear, transform 140ms linear",
+						}}
+					>
+						Welcome to
+					</div>
+
+					<div
+						className="font-racing text-5xl text-white drop-shadow-md md:text-6xl"
+						style={{
+							opacity: codeT,
+							transform: `translate3d(${(1 - codeT) * 22}px, 0, 0)`,
+							transition:
+								"opacity 140ms linear, transform 140ms linear",
+						}}
+					>
+						Code Quantum
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
+
+function RoadRevealBanner({
 	progress,
 	canRun,
 }: {
 	progress: number;
 	canRun: boolean;
 }) {
-	const DURATION_MS = 2600; 
-	const CAR_PX = 260; 
+	const DURATION_MS = 2600;
+	const CAR_PX = 260;
 
 	const wrapRef = useRef<HTMLDivElement | null>(null);
 	const roadRef = useRef<HTMLDivElement | null>(null);
@@ -687,7 +687,9 @@ function WelcomeBanner({
 
 		const io = new IntersectionObserver(
 			([entry]) =>
-				setInView(entry.isIntersecting && entry.intersectionRatio >= 0.35),
+				setInView(
+					entry.isIntersecting && entry.intersectionRatio >= 0.35,
+				),
 			{ threshold: [0, 0.15, 0.35, 0.6, 1] },
 		);
 
@@ -733,7 +735,8 @@ function WelcomeBanner({
 
 			const fadeStart = roadW - measuredCarW * 0.25;
 			const fadeEnd = roadW + measuredCarW * 0.85;
-			const opacity = 1 - clamp01((x - fadeStart) / Math.max(1, fadeEnd - fadeStart));
+			const opacity =
+				1 - clamp01((x - fadeStart) / Math.max(1, fadeEnd - fadeStart));
 			carEl.style.opacity = String(opacity);
 
 			if (t < 1) {
@@ -827,10 +830,14 @@ function WelcomeBanner({
 							<div className="mx-auto max-w-4xl text-center">
 								<p className="mt-2 text-[15px] font-normal leading-relaxed text-white/90 md:text-[17px]">
 									<Balancer>
-										CodeQuantum is a 12-hour, beginner friendly hackathon for everyone to join
-										and enjoy, designed to represent everyone’s diverse range of ideas in a
-										welcoming environment. At the event, you’ll have the opportunity to create
-										your own software and hardware products with up to 4 team members that wow
+										CodeQuantum is a 12-hour, beginner
+										friendly hackathon for everyone to join
+										and enjoy, designed to represent
+										everyone’s diverse range of ideas in a
+										welcoming environment. At the event,
+										you’ll have the opportunity to create
+										your own software and hardware products
+										with up to 4 team members that wow
 										yourself, mentors, and judges alike!
 									</Balancer>
 								</p>
@@ -861,7 +868,9 @@ function WelcomeBanner({
 								QUICK ANSWERS
 							</div>
 							<div className="mx-4 h-px flex-1 bg-white/10" />
-							<div className="text-xs text-white/45">tap to expand</div>
+							<div className="text-xs text-white/45">
+								tap to expand
+							</div>
 						</div>
 
 						<div className="grid gap-3 md:grid-cols-3">

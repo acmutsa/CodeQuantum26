@@ -869,7 +869,7 @@ const c = {
 		facebook: "https://facebook.com/acmutsa",
 		twitter: "https://twitter.com/acmutsa",
 		github: "https://github.com/acmutsa",
-		guide: "https://go.cqhacks.org/discord",
+		guide: "https://acmutsa.notion.site/cq26-survival-guide?source=copy_link",
 	},
 	icon: {
 		sm: "/img/logo/cq26.png",
