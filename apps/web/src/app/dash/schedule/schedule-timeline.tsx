@@ -5,6 +5,8 @@ import c from "config";
 import { formatInTimeZone } from "date-fns-tz";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { toZonedTime } from "date-fns-tz";
+import { getDay } from "date-fns";
 
 const daysOfWeek = [
 	"Sunday",
@@ -16,10 +18,14 @@ const daysOfWeek = [
 	"Saturday",
 ];
 
-function splitByDay(schedule: Event[]) {
+function splitByDay(schedule: Event[], timezone: string) {
 	const days: Map<string, Event[]> = new Map<string, Event[]>();
 	schedule.forEach((event) => {
-		const day = daysOfWeek[event.startTime.getDay()];
+		// Convert to user's timezone before getting the day
+		const zonedTime = toZonedTime(event.startTime, timezone);
+		const dayIndex = getDay(zonedTime);
+		const day = daysOfWeek[dayIndex];
+
 		if (days.get(day)) {
 			days.get(day)?.push(event);
 		} else {
@@ -42,7 +48,7 @@ export default function ScheduleTimeline({
 		<div className="mx-auto mt-5 w-3/4">
 			<table className="p-4">
 				<tbody>
-					{Array.from(splitByDay(schedule).entries()).map(
+					{Array.from(splitByDay(schedule, timezone).entries()).map(
 						([dayName, arr]): ReactNode => (
 							<>
 								<tr key={dayName + " title"} className="py-8">
