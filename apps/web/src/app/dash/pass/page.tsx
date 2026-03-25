@@ -52,12 +52,6 @@ function EventPass({ qrPayload, user, clerk, guild }: EventPassProps) {
 		<div className="relative my-20 h-max">
 			<div className="absolute left-1/2 top-0 z-10 h-[75px] w-[75px] -translate-x-1/2 -translate-y-[50%] rotate-45 rounded-full border-2 border-background border-b-muted border-r-muted bg-background dark:border" />
 			<div className="relative flex aspect-[9/17] !max-h-[calc(100vh-7rem)] w-full max-w-[400px] flex-col overflow-hidden rounded-3xl border-2 border-muted bg-background py-[37.5px] dark:border">
-				{/* Background image - centered and lower */}
-				<img
-					src={c.eventPassBgImage.replace("{name}", guild)}
-					alt=""
-					className="no-select absolute left-1/2 top-1/2 z-0 aspect-square w-[280px] -translate-x-1/2 -translate-y-1/2 object-contain"
-				/>
 				{/* Glow effect */}
 				<div className="z-5 absolute left-1/2 top-1/2 aspect-square w-[200px] -translate-x-1/2 -translate-y-[65%] bg-hackathon opacity-60 blur-[50px] will-change-transform"></div>
 				{/* Dark overlay for readability */}
@@ -100,7 +94,7 @@ function EventPass({ qrPayload, user, clerk, guild }: EventPassProps) {
 							</h1>
 						</div>
 						<div className="flex h-full w-full flex-col items-end justify-center gap-y-1 pr-3">
-							<p className="font-mono text-xs">{`${format(
+							<p className="text-right font-mono text-xs">{`${format(
 								c.startDate,
 								"h:mma, MMM d, yyyy",
 							)}`}</p>
